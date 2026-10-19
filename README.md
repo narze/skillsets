@@ -2,6 +2,8 @@
 
 Agent skills from other providers, in one folder for each provider.
 
+https://github.com/user-attachments/assets/a3b53fa4-422b-4e6b-93a7-f748b89cdad4
+
 ## Why?
 
 - **Load skills only when you need them.** If you install every skill globally, each agent session loads all of them. That fills the context and makes name conflicts. Here you choose the providers for each session.
