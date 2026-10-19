@@ -15,6 +15,7 @@ This folder is the maintained source for verifying what a skillsets user can do.
 - One tmux session for each drive, started with `$V start`. Wait for text with `$V wait`, never with a fixed sleep.
 - Get the provider order from `$V doctor`. Count `Down` presses from it.
 - Treat every command as literal. Keep the quotes.
+- Run loops over agents or providers in `bash -c`, not zsh. zsh arrays start at 1, so an index from bash recipes picks the wrong item.
 - Stop your own sessions with `$V stop`. Delete only the scratch folders that this run made.
 
 ## Proof and skip reporting

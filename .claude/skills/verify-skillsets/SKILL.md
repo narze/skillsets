@@ -91,7 +91,7 @@ Proof standards:
 
 ```bash
 .claude/skills/verify-skillsets/verify.sh stop      # kills only the private tmux server it started
-rm -rf <scratch CODEX_HOME> <scratch clone>         # only the scratch folders this run made
+rm -rf /literal/path/to/scratch-folder           # only scratch folders this run made; use the literal path, Claude Code blocks rm -rf "$VAR"
 ```
 
 Never `pkill node` or kill tmux by name: the user can have other agents and tmux sessions open. The evidence folder stays. After cleanup, `ls "$SKILLSETS_VERIFY_OUT"` must still list the `.txt` files.

@@ -26,7 +26,7 @@ Preconditions:
 - **Manifests.** Run `cat "$SC"/9arm/.claude-plugin/plugin.json "$SC"/.claude-plugin/marketplace.json`. The provider manifest has `"name": "9arm"` and the marketplace lists every provider.
 - **Picker on the result.** Run `$V start f 'node '"$SC"'/cli.mjs'` and capture the provider list. It matches the folders in the clone. (The helper runs from the real repo root, so give the clone path to node.)
 - **Real checkout unchanged.** `git status --short` in the real repo shows no new changes.
-- **Cleanup.** `$V stop f; rm -rf "$SC"`.
+- **Cleanup.** Run `$V stop f`, then remove the clone by its literal path (Claude Code blocks `rm -rf "$SC"` with a variable).
 
 ## Gotchas
 

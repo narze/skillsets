@@ -25,7 +25,7 @@ Preconditions:
 - **Config.** Run `cp "$CH/config.toml" "$SKILLSETS_VERIFY_OUT/codex-config.toml"`. It has `[marketplaces.skillsets]` and `enabled = false` for each provider.
 - **List.** Run `CODEX_HOME="$CH" codex plugin list | grep skillsets`. Each provider shows `installed, disabled`.
 - **Real home unchanged.** Run `stat -f '%Sm' ~/.codex/config.toml` and compare with `codex-real-before.txt`. They are equal.
-- **Cleanup.** `rm -rf "$CH"`.
+- **Cleanup.** Remove the scratch folder by its literal path, for example `rm -rf /var/folders/.../T/skillsets-verify-codex-123`. Claude Code blocks `rm -rf "$CH"` with a variable.
 
 ## Gotchas
 
