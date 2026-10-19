@@ -48,5 +48,6 @@ fetch_skills mattpocock/skills mattpocock
 fetch_skills cursor/plugins/pstack pstack
 fetch_skills thananon/9arm-skills 9arm debug-mantra post-mortem scrutinize
 fetch_skills obra/superpowers superpowers
+fetch_skills humanlayer/skills humanlayer
 
 write_marketplace

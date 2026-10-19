@@ -17,6 +17,7 @@ Agent skills from other providers, in one folder for each provider.
 | `pstack/`     | `cursor/plugins/pstack` | All                                       |
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
 | `superpowers/` | `obra/superpowers`     | All                                       |
+| `humanlayer/` | `humanlayer/skills`     | All                                       |
 
 ## Usage
 
