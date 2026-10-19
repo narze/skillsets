@@ -2,17 +2,18 @@
 
 Agent skills from other providers, in one folder for each provider.
 
-| Folder        | Source                  |
-| ------------- | ----------------------- |
-| `mattpocock/` | `mattpocock/skills`     |
-| `pstack/`     | `cursor/plugins/pstack` |
+| Folder        | Source                  | Skills                                    |
+| ------------- | ----------------------- | ----------------------------------------- |
+| `mattpocock/` | `mattpocock/skills`     | All                                       |
+| `pstack/`     | `cursor/plugins/pstack` | All                                       |
+| `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
 
 ## Use the skills
 
 Add the provider folders to a Claude Code session with `--add-dir`:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
 ```
 
 The skills load only in that session. To load one provider, add only its folder.
@@ -47,7 +48,9 @@ The `Fetch skills` GitHub Actions workflow runs `fetch.sh` every day. If the ski
 Add one line to the end of `fetch.sh`:
 
 ```bash
-fetch_skills <owner>/<repo>[/<path>] <folder>
+fetch_skills <owner>/<repo>[/<path>] <folder> [skill...]
 ```
+
+Without skill names, the script downloads all skills of the provider.
 
 Then run `./fetch.sh`, add the folder to the table above, and commit.

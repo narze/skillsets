@@ -7,7 +7,7 @@ This repo stores agent skills from other providers, one folder for each provider
 Start Claude Code with the provider folders:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
 ```
 
 - Put a prompt before `--add-dir`, because `--add-dir` accepts more than one path.
@@ -16,5 +16,5 @@ claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock"
 ## Rules
 
 - Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again.
-- To add a provider, add a `fetch_skills <source> <folder>` line to `fetch.sh`, run `./fetch.sh`, and update the table in `README.md`.
+- To add a provider, add a `fetch_skills <source> <folder> [skill...]` line to `fetch.sh`, run `./fetch.sh`, and update the table in `README.md`.
 - The `skills` CLI stages its files in git. Run `git reset` after `./fetch.sh` and stage only the files you want to commit.
