@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "build-iterated-agentic-loop": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/build-iterated-agentic-loop/skills/build-iterated-agentic-loop/SKILL.md",
+      "computedHash": "2a46b55d2e1ccfaae0a07dc8e8e96cc128f8bed175671d6840a616541840da9c"
+    },
+    "design-control-loop": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/design-control-loop/skills/design-control-loop/SKILL.md",
+      "computedHash": "b71362e3506b6d44308feb0391a0c7ad982eba578201ca3c8aa414c912724c8a"
+    },
+    "improve-claude-md": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/improve-claude-md/skills/improve-claude-md/SKILL.md",
+      "computedHash": "a93226f53ffa6a2599c89fb983f3aed00c843c04071a7aa59ee3365141619d25"
+    },
+    "narrow-react-prop-types": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/narrow-react-prop-types/skills/narrow-react-prop-types/SKILL.md",
+      "computedHash": "f1fee2b6c197780aa61594b2019a1b8d8e3ec9d8818f62f024af54af8e879259"
+    },
+    "rpi": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/rpi/skills/rpi/SKILL.md",
+      "computedHash": "ef971aa874748568d1a506557a697dde5d8e9a3d455f4af10babe52225c2823d"
+    },
+    "show-me": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/show-me/skills/show-me/SKILL.md",
+      "computedHash": "43766f53afe7eb9feba0bb7716590c35cbb8d39d4a91eddef50e9566a6f6ae19"
+    },
+    "visual-pr": {
+      "source": "humanlayer/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/visual-pr/skills/visual-pr/SKILL.md",
+      "computedHash": "197904ade976018d9ce28e706323f969a6a87947994f46e3ffad78c46e70a716"
+    }
+  }
+}

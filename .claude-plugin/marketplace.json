@@ -3,6 +3,7 @@
   "owner": { "name": "narze" },
   "plugins": [
     { "name": "9arm", "description": "Skills in ./9arm", "source": "./9arm" },
+    { "name": "humanlayer", "description": "Skills in ./humanlayer", "source": "./humanlayer" },
     { "name": "mattpocock", "description": "Skills in ./mattpocock", "source": "./mattpocock" },
     { "name": "pstack", "description": "Skills in ./pstack", "source": "./pstack" },
     { "name": "superpowers", "description": "Skills in ./superpowers", "source": "./superpowers" }

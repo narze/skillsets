@@ -1,0 +1,6 @@
+{
+  "name": "humanlayer",
+  "version": "1.0.0",
+  "description": "Skills from humanlayer/skills",
+  "skills": "./.claude/skills/"
+}
