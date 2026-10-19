@@ -198,3 +198,22 @@ Add a skills provider to this repo. Follow the rules in CLAUDE.md.
 - Skills: all   (or a list, for example: debug-mantra, post-mortem)
 Run ./fetch.sh, check that only the new folder changed, update the provider table in README.md, and commit.
 ```
+
+## Make your own skillsets
+
+1. Click **Use this template** at the top of this repo on GitHub, then **Create a new repository**.
+2. Clone your new repo.
+3. In `fetch.sh`, delete the `fetch_skills` lines that you do not want, and add your providers (see "Add a provider"). Change the owner name `narze` in `write_marketplace` to your name.
+4. Run `./fetch.sh`. It deletes and downloads each provider folder again. Delete the folders of providers that you removed from `fetch.sh`.
+5. Update the provider table at the top of this README, and commit.
+6. To let the daily workflow open PRs, go to **Settings → Actions → General** and select **Allow GitHub Actions to create and approve pull requests**.
+
+You can also ask an agent to do steps 3 to 5:
+
+```text
+Make this repo my own skillsets. Follow the rules in CLAUDE.md.
+- Keep these providers: <folders to keep, or none>
+- Add these providers: <source, folder and skills for each>
+- Marketplace owner name: <your name>
+Remove the other providers from fetch.sh and delete their folders, run ./fetch.sh, update the provider table in README.md, and commit.
+```
