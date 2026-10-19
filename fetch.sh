@@ -9,14 +9,14 @@ fetch_skills() {
   local source="$1" dest="$2"
 
   echo "==> Fetching $source into ./$dest"
-  rm -rf .agents/skills
-  npx -y skills add "$source" -p --skill "*" --agent "universal" -y
-
   rm -rf "$dest"
   mkdir -p "$dest"
-  mv .agents/skills/* "$dest"/
-  rm -rf .agents/skills
-  rmdir .agents 2>/dev/null || true
+  (
+    cd "$dest"
+    npx -y skills add "$source" -p --skill "*" --agent "universal" -y
+    mv .agents/skills/* .
+    rm -rf .agents
+  )
 }
 
 fetch_skills mattpocock/skills mattpocock
