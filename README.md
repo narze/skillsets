@@ -2,6 +2,15 @@
 
 Agent skills from other providers, in one folder for each provider.
 
+## Why?
+
+- **Load skills only when you need them.** If you install every skill globally, each agent session loads all of them. That fills the context and makes name conflicts. Here you choose the providers for each session.
+- **Use one copy with many agents.** The same folders work in Claude Code, Codex, OpenCode, Pi, Cursor CLI and T3 Code.
+- **Review changes before you use them.** Skills run with the full permissions of your agent. The skills are in git, and a daily workflow opens a PR when a provider changes, so you can read the diff before you merge it.
+- **Take only the skills you want.** You can take all skills from a provider, or only some of them.
+
+## Providers
+
 | Folder        | Source                  | Skills                                    |
 | ------------- | ----------------------- | ----------------------------------------- |
 | `mattpocock/` | `mattpocock/skills`     | All                                       |
