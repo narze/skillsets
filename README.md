@@ -18,6 +18,8 @@ Agent skills from other providers, in one folder for each provider.
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
 | `kunchen/`    | `kunchenguid/lavish-axi` | `lavish`                                 |
 
+## Usage
+
 Each tool loads only the providers you choose, for one session. Use an environment variable when the tool has one, for example in an app such as T3 Code that cannot pass CLI options.
 
 | Tool        | Environment variable       | CLI option                |
@@ -27,8 +29,6 @@ Each tool loads only the providers you choose, for one session. Use an environme
 | Codex CLI   | None                       | `-c 'plugins={...}'`      |
 | Pi          | None                       | `--skill`                 |
 | Cursor CLI  | None                       | `--plugin-dir`            |
-
-## Usage
 
 Open the section for your tool.
 
