@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "debug-mantra": {
+      "source": "thananon/9arm-skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/debug-mantra/SKILL.md",
+      "computedHash": "7c519ffda61c6a44db8ef12f6a9ed06de920b9b4faa2e7b47b0032b9c78056e3"
+    },
+    "post-mortem": {
+      "source": "thananon/9arm-skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/post-mortem/SKILL.md",
+      "computedHash": "124d195540d43cc922ee93d398996ac8c4294528e92e4d3d6ad83deaf5cfe59a"
+    },
+    "scrutinize": {
+      "source": "thananon/9arm-skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/scrutinize/SKILL.md",
+      "computedHash": "d82a0b76617a00069f972cd0efd57c591e18b56f7aa0652aec63f6cb37cfd735"
+    }
+  }
+}
