@@ -52,5 +52,5 @@ cursor-agent --plugin-dir "/path/to/skillsets/pstack" --plugin-dir "/path/to/ski
 ## Rules
 
 - Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again. It also makes `<provider>/.claude-plugin/plugin.json`, `<provider>/.codex-plugin/plugin.json` and `.claude-plugin/marketplace.json`, so do not edit those files.
-- To add a provider, add a `fetch_skills <source> <folder> [skill...]` line to `fetch.sh` before `write_marketplace`, run `./fetch.sh`, and update the table in `README.md`.
+- To add a provider, add a `fetch_skills <source> <folder> [skill...]` line to `fetch.sh` before `write_marketplace`, run `./fetch.sh`, and update the table in `README.md`. The folder name must be new and use only lowercase letters, numbers and `-`. `fetch.sh` refuses other names, and refuses to delete a folder that it did not make. Do not remove this check.
 - The `skills` CLI stages its files in git. Run `git reset` after `./fetch.sh` and stage only the files you want to commit.

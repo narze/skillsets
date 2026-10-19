@@ -207,6 +207,8 @@ fetch_skills <owner>/<repo>[/<path>] <folder> [skill...]
 
 Without skill names, the script downloads all skills of the provider.
 
+Use a new folder name with only lowercase letters, numbers and `-`. `fetch.sh` deletes and downloads each provider folder again, so it stops with an error if the name is not valid, or if the folder exists and `fetch.sh` did not make it (for example `lib` or `test`).
+
 Then run `./fetch.sh`, add the folder to the "Providers" table, and commit. To use the new provider in Codex, run `codex-install.sh` again.
 
 ### Ask an agent to add it
