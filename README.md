@@ -19,7 +19,12 @@ Each tool loads only the providers you choose, for one session. Use an environme
 | Pi          | None                       | `--skill`                 |
 | Cursor CLI  | None                       | `--plugin-dir`            |
 
-## Use the skills in T3 Code
+## Usage
+
+Open the section for your tool.
+
+<details>
+<summary><strong>T3 Code</strong></summary>
 
 Set these in T3 Code settings, for each provider:
 
@@ -29,15 +34,18 @@ Set these in T3 Code settings, for each provider:
 | OpenCode | Variables          | `OPENCODE_CONFIG_CONTENT` = `{"skills":{"paths":["/path/to/skillsets/pstack/.claude/skills"]}}` |
 | Codex    | Launch arguments   | `-c 'plugins={"pstack@skillsets"={enabled=true}}'` (run `codex-install.sh` first) |
 | Pi       | Launch arguments   | `--skill /path/to/skillsets/pstack/.claude/skills --skill /path/to/skillsets/9arm/.claude/skills` |
-| Cursor   | None               | Not supported in T3 Code. See below. |
+| Cursor   | None               | Not supported in T3 Code. See the "Cursor CLI" section. |
 
 - Claude: do not use `--add-dir` in "Launch arguments". T3 Code keeps only one value for each flag.
 - OpenCode: leave "Server URL" blank, so T3 Code starts the server with the variable.
-- Cursor is not supported in T3 Code. T3 Code runs Cursor through the Cursor SDK in its own process. It has no "Launch arguments", and it reads only `CURSOR_API_KEY` from "Variables". Cursor loads skills only from your user folders (for example `~/.cursor/skills`, `~/.agents/skills`, `~/.claude/skills`), the project folders, and installed plugins. To use these skills with Cursor, use the Cursor CLI (see below).
+- Cursor is not supported in T3 Code. T3 Code runs Cursor through the Cursor SDK in its own process. It has no "Launch arguments", and it reads only `CURSOR_API_KEY` from "Variables". Cursor loads skills only from your user folders (for example `~/.cursor/skills`, `~/.agents/skills`, `~/.claude/skills`), the project folders, and installed plugins. To use these skills with Cursor, use the Cursor CLI (see the "Cursor CLI" section).
 
-## Use the skills in Claude Code
+</details>
 
-### Environment variable
+<details>
+<summary><strong>Claude Code</strong></summary>
+
+**Environment variable**
 
 Set `CLAUDE_CODE_PLUGIN_DIRS` to the provider folders, separated by `:`:
 
@@ -47,7 +55,7 @@ CLAUDE_CODE_PLUGIN_DIRS="/path/to/skillsets/pstack:/path/to/skillsets/9arm"
 
 Each provider folder is a Claude Code plugin (`.claude-plugin/plugin.json`). So Claude Code adds the provider name to each skill name, for example `/pstack:poteto-help`, and names in different providers do not conflict.
 
-### CLI option
+**CLI option**
 
 Add the provider folders to a Claude Code session with `--add-dir`:
 
@@ -62,7 +70,10 @@ The skills load only in that session. To load one provider, add only its folder.
 - Most `pstack` skills set `disable-model-invocation: true`. Claude does not use them by itself. Type the slash command, for example `/poteto-help`.
 - `mattpocock` and `pstack` both have `tdd` and `teach`. If you add both folders, these names conflict, and you can get the skill from the other provider.
 
-## Use the skills in OpenCode
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
 
 Set `OPENCODE_CONFIG_CONTENT` to a config with the `.claude/skills` folder of each provider:
 
@@ -74,7 +85,10 @@ OPENCODE_CONFIG_CONTENT='{"skills":{"paths":["/path/to/skillsets/pstack/.claude/
 - OpenCode adds this config to your usual config, so your usual skills also load.
 - OpenCode v2 uses a background service. The variable must be set for the process that starts the server. T3 Code starts the server itself when its "Server URL" is blank. If you connect to a server that is already running, start that server with the variable.
 
-## Use the skills in Codex CLI
+</details>
+
+<details>
+<summary><strong>Codex CLI</strong></summary>
 
 Codex has no flag or environment variable that adds a skills folder for one session. `--add-dir` gives write access only. This repo is a Codex plugin marketplace instead, with one plugin for each provider folder.
 
@@ -101,13 +115,15 @@ codex -c 'plugins={"pstack@skillsets"={enabled=true},"mattpocock@skillsets"={ena
 
 - Use the inline table form above. The dotted form `-c 'plugins."pstack@skillsets".enabled=true'` does not turn the plugin on.
 - Codex merges this table with `config.toml`, so your other plugins do not change.
-
 - Codex adds the plugin name to each skill name, for example `$pstack:poteto-help`. So names in different providers do not conflict.
 - Codex does not read `disable-model-invocation`, so it can use all `pstack` skills by itself.
 - Codex uses a copy of each plugin. After `./fetch.sh`, run `codex-install.sh` again to update the copies.
 - The script uses `$CODEX_HOME` if it is set.
 
-## Use the skills in Pi
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
 
 Give each provider's `.claude/skills` folder to `--skill`. You can use `--skill` more than one time:
 
@@ -119,7 +135,10 @@ pi --skill "/path/to/skillsets/pstack/.claude/skills" --skill "/path/to/skillset
 - Pi reads `disable-model-invocation`, so it does not use most `pstack` skills by itself. Type `/skill:<name>`, for example `/skill:poteto-help`.
 - Pi also loads your usual skills. To load only the skills you give with `--skill`, add `--no-skills`.
 
-## Use the skills in Cursor CLI
+</details>
+
+<details>
+<summary><strong>Cursor CLI</strong></summary>
 
 Give each provider folder to `--plugin-dir`. You can use `--plugin-dir` more than one time:
 
@@ -129,7 +148,9 @@ cursor-agent --plugin-dir "/path/to/skillsets/pstack" --plugin-dir "/path/to/ski
 
 - Cursor reads the `.claude-plugin/plugin.json` in each provider folder.
 - The Cursor CLI has no environment variable for this. `CURSOR_CONFIG_DIR` does not change where Cursor looks for user skills.
-- This does not work in T3 Code. See "Use the skills in T3 Code".
+- This does not work in T3 Code. See the "T3 Code" section.
+
+</details>
 
 ## Layout
 
