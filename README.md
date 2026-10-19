@@ -9,7 +9,28 @@ Agent skills from other providers, in one folder for each provider.
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
 | `kunchen/`    | `kunchenguid/lavish-axi` | `lavish`                                 |
 
+Each tool loads only the providers you choose, for one session. Use an environment variable when the tool has one, for example in an app such as T3 Code that cannot pass CLI options.
+
+| Tool        | Environment variable       | CLI option                |
+| ----------- | -------------------------- | ------------------------- |
+| Claude Code | `CLAUDE_CODE_PLUGIN_DIRS`  | `--add-dir`               |
+| OpenCode    | `OPENCODE_CONFIG_CONTENT`  | None                      |
+| Codex CLI   | None                       | `-c 'plugins={...}'`      |
+| Pi          | None                       | `--skill`                 |
+
 ## Use the skills in Claude Code
+
+### Environment variable
+
+Set `CLAUDE_CODE_PLUGIN_DIRS` to the provider folders, separated by `:`:
+
+```bash
+CLAUDE_CODE_PLUGIN_DIRS="/path/to/skillsets/pstack:/path/to/skillsets/9arm"
+```
+
+Each provider folder is a Claude Code plugin (`.claude-plugin/plugin.json`). So Claude Code adds the provider name to each skill name, for example `/pstack:poteto-help`, and names in different providers do not conflict.
+
+### CLI option
 
 Add the provider folders to a Claude Code session with `--add-dir`:
 
@@ -23,6 +44,18 @@ The skills load only in that session. To load one provider, add only its folder.
   `claude "your prompt" --add-dir "/path/to/skillsets/pstack"`
 - Most `pstack` skills set `disable-model-invocation: true`. Claude does not use them by itself. Type the slash command, for example `/poteto-help`.
 - `mattpocock` and `pstack` both have `tdd` and `teach`. If you add both folders, these names conflict, and you can get the skill from the other provider.
+
+## Use the skills in OpenCode
+
+Set `OPENCODE_CONFIG_CONTENT` to a config with the `.claude/skills` folder of each provider:
+
+```bash
+OPENCODE_CONFIG_CONTENT='{"skills":{"paths":["/path/to/skillsets/pstack/.claude/skills","/path/to/skillsets/9arm/.claude/skills"]}}'
+```
+
+- Give the `.claude/skills` folder, not the provider folder.
+- OpenCode adds this config to your usual config, so your usual skills also load.
+- OpenCode v2 uses a background service. The variable must be set for the process that starts the server. T3 Code starts the server itself when its "Server URL" is blank. If you connect to a server that is already running, start that server with the variable.
 
 ## Use the skills in Codex CLI
 
@@ -74,6 +107,7 @@ pi --skill "/path/to/skillsets/pstack/.claude/skills" --skill "/path/to/skillset
 ```
 <provider>/
 ├── skills-lock.json          # source and hash of each skill
+├── .claude-plugin/plugin.json # Claude Code plugin, made by fetch.sh
 ├── .codex-plugin/plugin.json # Codex plugin, made by fetch.sh
 └── .claude/skills/<skill>/SKILL.md
 .claude-plugin/marketplace.json  # Codex marketplace, made by fetch.sh
