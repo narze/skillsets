@@ -41,6 +41,12 @@ For Pi, give each provider's `.claude/skills` folder with `--skill`:
 pi --skill "/path/to/skillsets/pstack/.claude/skills" --skill "/path/to/skillsets/9arm/.claude/skills"
 ```
 
+For Cursor CLI, give each provider folder with `--plugin-dir`. There is no environment variable for this, and Cursor in T3 Code is not supported.
+
+```bash
+cursor-agent --plugin-dir "/path/to/skillsets/pstack" --plugin-dir "/path/to/skillsets/9arm"
+```
+
 ## Rules
 
 - Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again. It also makes `<provider>/.claude-plugin/plugin.json`, `<provider>/.codex-plugin/plugin.json` and `.claude-plugin/marketplace.json`, so do not edit those files.
