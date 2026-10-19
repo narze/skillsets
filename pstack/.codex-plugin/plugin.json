@@ -1,0 +1,6 @@
+{
+  "name": "pstack",
+  "version": "1.0.0",
+  "description": "Skills from cursor/plugins/pstack",
+  "skills": "./.claude/skills/"
+}

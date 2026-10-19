@@ -1,0 +1,6 @@
+{
+  "name": "9arm",
+  "version": "1.0.0",
+  "description": "Skills from thananon/9arm-skills",
+  "skills": "./.claude/skills/"
+}
