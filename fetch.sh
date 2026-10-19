@@ -20,3 +20,4 @@ fetch_skills() {
 }
 
 fetch_skills mattpocock/skills mattpocock
+fetch_skills cursor/plugins/pstack pstack
