@@ -14,7 +14,8 @@ fetch_skills() {
   (
     cd "$dest"
     npx -y skills add "$source" -p --skill "*" --agent "universal" -y
-    mv .agents/skills/* .
+    mkdir -p .claude/skills
+    mv .agents/skills/* .claude/skills/
     rm -rf .agents
   )
 }
