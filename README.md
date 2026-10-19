@@ -7,13 +7,14 @@ Agent skills from other providers, in one folder for each provider.
 | `mattpocock/` | `mattpocock/skills`     | All                                       |
 | `pstack/`     | `cursor/plugins/pstack` | All                                       |
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
+| `kunchen/`    | `kunchenguid/lavish-axi` | `lavish`                                 |
 
 ## Use the skills
 
 Add the provider folders to a Claude Code session with `--add-dir`:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm" "/path/to/skillsets/kunchen"
 ```
 
 The skills load only in that session. To load one provider, add only its folder.

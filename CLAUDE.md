@@ -7,7 +7,7 @@ This repo stores agent skills from other providers, one folder for each provider
 Start Claude Code with the provider folders:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm" "/path/to/skillsets/kunchen"
 ```
 
 - Put a prompt before `--add-dir`, because `--add-dir` accepts more than one path.
