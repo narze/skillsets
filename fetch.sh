@@ -4,11 +4,26 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
+# Stop unless <dest> is a plain folder name, and is new or a folder that fetch.sh made,
+# so `rm -rf "$dest"` can only replace a provider folder.
+check_dest() {
+  local dest="$1"
+  if [[ ! "$dest" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+    echo "fetch.sh: invalid folder name '$dest' (use lowercase letters, numbers and -)" >&2
+    exit 1
+  fi
+  if [ -e "$dest" ] && ! grep -qsF '"skills": "./.claude/skills/"' "$dest/.claude-plugin/plugin.json"; then
+    echo "fetch.sh: ./$dest exists and fetch.sh did not make it, so it will not be deleted" >&2
+    exit 1
+  fi
+}
+
 # fetch_skills <source> <dest> [skill...]  (all skills when none are given)
 fetch_skills() {
-  local source="$1" dest="$2"
+  local source="$1" dest="${2-}"
   local skills=("${@:3}")
   [ ${#skills[@]} -eq 0 ] && skills=("*")
+  check_dest "$dest"
 
   echo "==> Fetching $source into ./$dest"
   rm -rf "$dest"
