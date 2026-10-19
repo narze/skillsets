@@ -18,6 +18,7 @@ Agent skills from other providers, in one folder for each provider.
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
 | `superpowers/` | `obra/superpowers`     | All                                       |
 | `humanlayer/` | `humanlayer/skills`     | All                                       |
+| `addyosmani/` | `addyosmani/agent-skills` | All                                     |
 
 ## Usage
 
@@ -87,7 +88,7 @@ The skills load only in that session. To load one provider, add only its folder.
 - `--add-dir` accepts more than one path. If you give a prompt, put it before `--add-dir`, or Claude reads the prompt as a folder:
   `claude "your prompt" --add-dir "/path/to/skillsets/pstack"`
 - Most `pstack` skills set `disable-model-invocation: true`. Claude does not use them by itself. Type the slash command, for example `/poteto-help`.
-- `mattpocock` and `pstack` both have `tdd` and `teach`. If you add both folders, these names conflict, and you can get the skill from the other provider.
+- `mattpocock` and `pstack` both have `tdd` and `teach`, and `superpowers` and `addyosmani` both have `test-driven-development`. With `--add-dir`, these names conflict, and you can get the skill from the other provider. `CLAUDE_CODE_PLUGIN_DIRS` adds the provider name, so it has no conflicts.
 
 </details>
 

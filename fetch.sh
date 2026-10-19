@@ -49,5 +49,6 @@ fetch_skills cursor/plugins/pstack pstack
 fetch_skills thananon/9arm-skills 9arm debug-mantra post-mortem scrutinize
 fetch_skills obra/superpowers superpowers
 fetch_skills humanlayer/skills humanlayer
+fetch_skills addyosmani/agent-skills addyosmani
 
 write_marketplace
