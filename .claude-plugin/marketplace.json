@@ -3,7 +3,6 @@
   "owner": { "name": "narze" },
   "plugins": [
     { "name": "9arm", "description": "Skills in ./9arm", "source": "./9arm" },
-    { "name": "kunchen", "description": "Skills in ./kunchen", "source": "./kunchen" },
     { "name": "mattpocock", "description": "Skills in ./mattpocock", "source": "./mattpocock" },
     { "name": "pstack", "description": "Skills in ./pstack", "source": "./pstack" }
   ]

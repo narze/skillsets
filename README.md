@@ -16,7 +16,6 @@ Agent skills from other providers, in one folder for each provider.
 | `mattpocock/` | `mattpocock/skills`     | All                                       |
 | `pstack/`     | `cursor/plugins/pstack` | All                                       |
 | `9arm/`       | `thananon/9arm-skills`  | `debug-mantra`, `post-mortem`, `scrutinize` |
-| `kunchen/`    | `kunchenguid/lavish-axi` | `lavish`                                 |
 
 ## Usage
 
@@ -78,7 +77,7 @@ Each provider folder is a Claude Code plugin (`.claude-plugin/plugin.json`). So 
 Add the provider folders to a Claude Code session with `--add-dir`:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm" "/path/to/skillsets/kunchen"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
 ```
 
 The skills load only in that session. To load one provider, add only its folder.
@@ -128,7 +127,7 @@ codex -c 'plugins={"pstack@skillsets"={enabled=true}}'
 codex -c 'plugins={"pstack@skillsets"={enabled=true},"9arm@skillsets"={enabled=true}}'
 
 # All providers
-codex -c 'plugins={"pstack@skillsets"={enabled=true},"mattpocock@skillsets"={enabled=true},"9arm@skillsets"={enabled=true},"kunchen@skillsets"={enabled=true}}'
+codex -c 'plugins={"pstack@skillsets"={enabled=true},"mattpocock@skillsets"={enabled=true},"9arm@skillsets"={enabled=true}}'
 ```
 
 - Use the inline table form above. The dotted form `-c 'plugins."pstack@skillsets".enabled=true'` does not turn the plugin on.

@@ -74,7 +74,7 @@ test("every agent has a builder", () => {
 
 test("listProviders finds provider folders in the repo", () => {
   const found = listProviders(new URL("..", import.meta.url).pathname);
-  for (const name of ["mattpocock", "pstack", "9arm", "kunchen"]) {
+  for (const name of ["mattpocock", "pstack", "9arm"]) {
     assert.ok(found.includes(name), `${name} missing from ${found}`);
   }
   assert.deepEqual(found, [...found].sort());

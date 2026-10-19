@@ -23,7 +23,7 @@ OPENCODE_CONFIG_CONTENT='{"skills":{"paths":["/path/to/skillsets/pstack/.claude/
 Claude Code CLI option, if you start it yourself:
 
 ```bash
-claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm" "/path/to/skillsets/kunchen"
+claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/path/to/skillsets/9arm"
 ```
 
 - Put a prompt before `--add-dir`, because `--add-dir` accepts more than one path.
