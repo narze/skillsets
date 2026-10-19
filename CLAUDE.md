@@ -13,8 +13,16 @@ claude --add-dir "/path/to/skillsets/pstack" "/path/to/skillsets/mattpocock" "/p
 - Put a prompt before `--add-dir`, because `--add-dir` accepts more than one path.
 - Each skill must be at `<provider>/.claude/skills/<skill>/SKILL.md`. Claude Code does not load skills from other paths in an added folder.
 
+For Codex CLI, run `./codex-install.sh` one time. Then turn on the providers you want for one session:
+
+```bash
+codex -c 'plugins={"pstack@skillsets"={enabled=true},"9arm@skillsets"={enabled=true}}'
+```
+
+Codex has no flag or environment variable that adds a skills folder, so each provider folder is a Codex plugin. Use the inline table form. The dotted form `plugins."<name>@skillsets".enabled=true` does not work.
+
 ## Rules
 
-- Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again.
-- To add a provider, add a `fetch_skills <source> <folder> [skill...]` line to `fetch.sh`, run `./fetch.sh`, and update the table in `README.md`.
+- Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again. It also makes `<provider>/.codex-plugin/plugin.json` and `.claude-plugin/marketplace.json`, so do not edit those files.
+- To add a provider, add a `fetch_skills <source> <folder> [skill...]` line to `fetch.sh` before `write_marketplace`, run `./fetch.sh`, and update the table in `README.md`.
 - The `skills` CLI stages its files in git. Run `git reset` after `./fetch.sh` and stage only the files you want to commit.
