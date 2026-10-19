@@ -1,0 +1,6 @@
+{
+  "name": "mattpocock",
+  "version": "1.0.0",
+  "description": "Skills from mattpocock/skills",
+  "skills": "./.claude/skills/"
+}

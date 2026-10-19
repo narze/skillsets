@@ -20,10 +20,12 @@ fetch_skills() {
     mv .agents/skills/* .claude/skills/
     rm -rf .agents
 
-    # Codex plugin manifest, so Codex can load the same skills (see codex-install.sh)
-    mkdir -p .codex-plugin
+    # Plugin manifests, so Claude Code (CLAUDE_CODE_PLUGIN_DIRS) and Codex (codex-install.sh)
+    # can load the same skills
+    mkdir -p .codex-plugin .claude-plugin
     printf '{\n  "name": "%s",\n  "version": "1.0.0",\n  "description": "Skills from %s",\n  "skills": "./.claude/skills/"\n}\n' \
       "$dest" "$source" > .codex-plugin/plugin.json
+    cp .codex-plugin/plugin.json .claude-plugin/plugin.json
   )
 }
 
