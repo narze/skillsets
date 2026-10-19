@@ -1,0 +1,6 @@
+{
+  "name": "superpowers",
+  "version": "1.0.0",
+  "description": "Skills from obra/superpowers",
+  "skills": "./.claude/skills/"
+}
