@@ -194,7 +194,7 @@ fetch_skills <owner>/<repo>[/<path>] <folder> [skill...]
 
 Without skill names, the script downloads all skills of the provider.
 
-Then run `./fetch.sh`, add the folder to the table above, and commit. To use the new provider in Codex, run `codex-install.sh` again.
+Then run `./fetch.sh`, add the folder to the "Providers" table, and commit. To use the new provider in Codex, run `codex-install.sh` again.
 
 ### Ask an agent to add it
 
@@ -214,7 +214,7 @@ Run ./fetch.sh, check that only the new folder changed, update the provider tabl
 2. Clone your new repo.
 3. In `fetch.sh`, delete the `fetch_skills` lines that you do not want, and add your providers (see "Add a provider"). Change the owner name `narze` in `write_marketplace` to your name.
 4. Run `./fetch.sh`. It deletes and downloads each provider folder again. Delete the folders of providers that you removed from `fetch.sh`.
-5. Update the provider table at the top of this README, and commit.
+5. Update the "Providers" table in this README, and commit.
 6. To let the daily workflow open PRs, go to **Settings → Actions → General** and select **Allow GitHub Actions to create and approve pull requests**.
 
 You can also ask an agent to do steps 3 to 5:
