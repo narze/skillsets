@@ -1,0 +1,5 @@
+# Files left out of the npm package (npx narze/skillsets).
+# The provider folders, with their .claude and plugin folders, must stay: the CLI reads them.
+node_modules/
+test/
+.github/
