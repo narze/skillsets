@@ -20,7 +20,7 @@ The skills load only in that session. To load one provider, add only its folder.
 - `--add-dir` accepts more than one path. If you give a prompt, put it before `--add-dir`, or Claude reads the prompt as a folder:
   `claude "your prompt" --add-dir "/path/to/skillsets/pstack"`
 - Most `pstack` skills set `disable-model-invocation: true`. Claude does not use them by itself. Type the slash command, for example `/poteto-help`.
-- `mattpocock` and `pstack` both have `tdd`, `teach` and `writing-for-agents`. If you add both folders, these names conflict, and you can get the skill from the other provider.
+- `mattpocock` and `pstack` both have `tdd` and `teach`. If you add both folders, these names conflict, and you can get the skill from the other provider.
 
 ## Layout
 
