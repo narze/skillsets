@@ -1,0 +1,6 @@
+{
+  "name": "addyosmani",
+  "version": "1.0.0",
+  "description": "Skills from addyosmani/agent-skills",
+  "skills": "./.claude/skills/"
+}
