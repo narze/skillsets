@@ -57,6 +57,18 @@ codex -c 'plugins={"pstack@skillsets"={enabled=true},"mattpocock@skillsets"={ena
 - Codex uses a copy of each plugin. After `./fetch.sh`, run `codex-install.sh` again to update the copies.
 - The script uses `$CODEX_HOME` if it is set.
 
+## Use the skills in Pi
+
+Give each provider's `.claude/skills` folder to `--skill`. You can use `--skill` more than one time:
+
+```bash
+pi --skill "/path/to/skillsets/pstack/.claude/skills" --skill "/path/to/skillsets/9arm/.claude/skills"
+```
+
+- Give the `.claude/skills` folder, not the provider folder. Pi does not look in the hidden `.claude` folder.
+- Pi reads `disable-model-invocation`, so it does not use most `pstack` skills by itself. Type `/skill:<name>`, for example `/skill:poteto-help`.
+- Pi also loads your usual skills. To load only the skills you give with `--skill`, add `--no-skills`.
+
 ## Layout
 
 ```

@@ -21,6 +21,12 @@ codex -c 'plugins={"pstack@skillsets"={enabled=true},"9arm@skillsets"={enabled=t
 
 Codex has no flag or environment variable that adds a skills folder, so each provider folder is a Codex plugin. Use the inline table form. The dotted form `plugins."<name>@skillsets".enabled=true` does not work.
 
+For Pi, give each provider's `.claude/skills` folder with `--skill`:
+
+```bash
+pi --skill "/path/to/skillsets/pstack/.claude/skills" --skill "/path/to/skillsets/9arm/.claude/skills"
+```
+
 ## Rules
 
 - Do not edit the files in a provider folder. `fetch.sh` deletes and downloads them again. It also makes `<provider>/.codex-plugin/plugin.json` and `.claude-plugin/marketplace.json`, so do not edit those files.
