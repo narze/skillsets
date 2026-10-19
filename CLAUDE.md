@@ -4,6 +4,8 @@ This repo stores agent skills from other providers, one folder for each provider
 
 ## Load the skills
 
+`npm start` runs an interactive CLI (`cli.mjs`) that prints the command for the chosen skillsets and agent. The commands come from `lib/commands.mjs`. If you change how an agent loads skills, update that file, its tests in `test/`, and this file. Run `npm test`.
+
 Prefer environment variables, because apps such as T3 Code cannot pass CLI options.
 
 Claude Code: set `CLAUDE_CODE_PLUGIN_DIRS` to provider folders, separated by `:`. Skill names get the provider prefix, for example `/pstack:poteto-help`.
