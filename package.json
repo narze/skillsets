@@ -2,6 +2,9 @@
   "name": "skillsets",
   "private": true,
   "type": "module",
+  "bin": {
+    "skillsets": "cli.mjs"
+  },
   "engines": {
     "node": ">=20"
   },

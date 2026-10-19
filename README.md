@@ -23,9 +23,11 @@ Agent skills from other providers, in one folder for each provider.
 The fastest way: choose skillsets and an agent, and the CLI prints the command (or the T3 Code settings) for you.
 
 ```bash
-npm install
-npm start
+npm install   # one time
+npx .
 ```
+
+`npm start` does the same.
 
 Each tool loads only the providers you choose, for one session. Use an environment variable when the tool has one, for example in an app such as T3 Code that cannot pass CLI options.
 
