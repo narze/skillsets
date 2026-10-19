@@ -186,3 +186,15 @@ fetch_skills <owner>/<repo>[/<path>] <folder> [skill...]
 Without skill names, the script downloads all skills of the provider.
 
 Then run `./fetch.sh`, add the folder to the table above, and commit. To use the new provider in Codex, run `codex-install.sh` again.
+
+### Ask an agent to add it
+
+Open an agent (for example Claude Code or Codex) in this repo and send this prompt. Replace the source, folder and skill names:
+
+```text
+Add a skills provider to this repo. Follow the rules in CLAUDE.md.
+- Source: <owner>/<repo>[/<path>]   (the value for `npx skills add`)
+- Folder: <folder>
+- Skills: all   (or a list, for example: debug-mantra, post-mortem)
+Run ./fetch.sh, check that only the new folder changed, update the provider table in README.md, and commit.
+```
