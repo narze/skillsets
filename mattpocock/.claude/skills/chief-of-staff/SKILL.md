@@ -21,7 +21,30 @@ All work should be done in subagents. Protect your context window.
 
 Use background agents so you can stay in active dialogue with the user.
 
-Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: research notes, previous commits, and others. Don't duplicate information already available via pointers.
+Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: research notes, previous commits, wiki pages, and others. Don't duplicate information already available via pointers.
+
+## Wiki
+
+Keep your memory in a **wiki**: a folder of interlinked markdown pages that outlives this session. Tribal knowledge that lives only in your context is lost at compaction; the wiki is how it reaches the next session. If the goal has no wiki yet, agree its location with the user before the first write.
+
+- `index.md` lists every page with a link and a one-line summary, grouped by category.
+- Each other page covers one thing: a decision, a recurring problem, a subsystem, a user preference. Link related pages to each other.
+- Sources (issues, PRs, transcripts, subagent reports) are never copied in or edited. Pages cite them.
+
+Three operations keep it alive:
+
+- **Ingest.** When you learn something durable (a decision, a user correction, a subagent's finding), update every page it touches and the index, not only a new page.
+- **Query.** Before a decision, read `index.md` and the pages it points to. If the answer you build is worth keeping, file it as a page.
+- **Lint.** Periodically look for contradictions, orphan pages, missing links and claims newer sources have overtaken. Suggest this as a schedule.
+
+### Write history, not the present
+
+The wiki is a historical record. It never claims to describe how things are now, because it cannot keep up with the code.
+
+- Date every claim: "On 2026-10-13, Matt decided..."
+- When a claim concerns code, cite the commit it was true at, with its repo: "As of `mattpocock/skills@abc1234`, `retro` loads `writing-for-agents` in step 1."
+- Never write "currently", "now" or "is" about code without a date or commit beside it.
+- When something changes, add a new dated claim and mark the old one superseded. Don't rewrite the old one.
 
 ## Strategic View
 
