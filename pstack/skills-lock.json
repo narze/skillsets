@@ -113,7 +113,7 @@
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/poteto-help/SKILL.md",
-      "computedHash": "e224bb3945a7a5e87f0383a300bbd623643723c65c0afba3b03488c46a8359e7"
+      "computedHash": "93d6b5f734230ce4205f5fc1eb8961b9676a9d232eb3f6cf5892dcedac848137"
     },
     "poteto-mode": {
       "source": "cursor/plugins",
@@ -287,7 +287,7 @@
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/sharpen/SKILL.md",
-      "computedHash": "e134d2d72e891cc003e7f03a09c2dc6148aeb43ffb6195d5cbe77b34300822f3"
+      "computedHash": "ea086554887a219066acf376daa032377f95645c62d691fdc91130d0961cc34f"
     },
     "show-me-your-work": {
       "source": "cursor/plugins",
