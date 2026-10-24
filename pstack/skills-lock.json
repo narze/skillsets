@@ -47,7 +47,7 @@
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/create-formal-verification-skill/SKILL.md",
-      "computedHash": "03bc8da39dfc3c3d47ccf616078611a37eabd07728fd0fe1c38bb57fa60ddd9a"
+      "computedHash": "343ef6f6d4ccd10ff45efb3cce3a24e8cdac462cc4d3a1bac6e891fe1a432d68"
     },
     "create-verification-skill": {
       "source": "cursor/plugins",
@@ -85,6 +85,12 @@
       "skillPath": "pstack/skills/ketchup/SKILL.md",
       "computedHash": "4115a76eb56d0cd3577cedb7cbda991ea4ea4006868e0993f8015c88e7c8839e"
     },
+    "ketchup-video": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "skillPath": "pstack/skills/ketchup-video/SKILL.md",
+      "computedHash": "b56d63f19a04354437b83ed1d2d1d5722d49e04edd84fc858462f4df962e0d2d"
+    },
     "maintain-formal-verification-skill": {
       "source": "cursor/plugins",
       "sourceType": "github",
@@ -113,13 +119,13 @@
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/poteto-help/SKILL.md",
-      "computedHash": "93d6b5f734230ce4205f5fc1eb8961b9676a9d232eb3f6cf5892dcedac848137"
+      "computedHash": "37c6a8509bc2a6c700959a3d4aa35b4f19488abf6f86a5f24942b7e117ad1400"
     },
     "poteto-mode": {
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/poteto-mode/SKILL.md",
-      "computedHash": "cef5e3e606c022003ccdbd7aef275ead77421a827124130a4269f0a22c652f96"
+      "computedHash": "4ee16e89d4eb63fa42f48fcc72c021ed225758dca51d029fc9599509ac1ced70"
     },
     "principle-attack-the-premise": {
       "source": "cursor/plugins",
@@ -275,7 +281,7 @@
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/reflect/SKILL.md",
-      "computedHash": "07d33b0f801b68d3a31bcb5b5bb1c1c3247785014400836d167b04e7e51f5460"
+      "computedHash": "a2a789cf82c669e131670679eb2e4175401b17257e770e26990682a759fb81a0"
     },
     "setup-pstack": {
       "source": "cursor/plugins",
@@ -295,11 +301,17 @@
       "skillPath": "pstack/skills/show-me-your-work/SKILL.md",
       "computedHash": "1de7f92a6c223c914ba9e220cf3247504df405384557314de92baffafadc3db1"
     },
+    "statechart": {
+      "source": "cursor/plugins",
+      "sourceType": "github",
+      "skillPath": "pstack/skills/statechart/SKILL.md",
+      "computedHash": "aef5686d58fd459fc06587fab3c476de486bf8c779348a0b6a3f1542b68a4d14"
+    },
     "swarm": {
       "source": "cursor/plugins",
       "sourceType": "github",
       "skillPath": "pstack/skills/swarm/SKILL.md",
-      "computedHash": "f80a2502841e2471cbaa84fbaeb15be7b5bf49fa9a2c02a2d5e54708bd424ed4"
+      "computedHash": "26fa5351e48da665ce9e8a881ffbece7e9e3623acbed127c457c897e32f41521"
     },
     "tdd": {
       "source": "cursor/plugins",
