@@ -1,0 +1,6 @@
+{
+  "name": "tstack",
+  "version": "1.0.0",
+  "description": "Skills from t3dotgg/tstack/skills",
+  "skills": "./.claude/skills/"
+}

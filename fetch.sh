@@ -65,5 +65,6 @@ fetch_skills thananon/9arm-skills 9arm debug-mantra post-mortem scrutinize
 fetch_skills obra/superpowers superpowers
 fetch_skills humanlayer/skills humanlayer
 fetch_skills addyosmani/agent-skills addyosmani
+fetch_skills t3dotgg/tstack/skills tstack
 
 write_marketplace
