@@ -202,10 +202,10 @@ The `Fetch skills` GitHub Actions workflow runs `fetch.sh` every day. If the ski
 Add one line to `fetch.sh`, before `write_marketplace`:
 
 ```bash
-fetch_skills <owner>/<repo>[/<path>] <folder> [skill...] [!skill...]
+fetch_skills <owner>/<repo>[/<path>] <folder> [skill...] [-skill...]
 ```
 
-Without skill names, the script downloads all skills of the provider. Put `!` before a skill name to leave that skill out, for example `fetch_skills cursor/plugins/pstack pstack !statechart`. The script stops with an error if the provider has no skill with that name.
+Without skill names, the script downloads all skills of the provider. Put `-` before a skill name to leave that skill out, for example `fetch_skills cursor/plugins/pstack pstack -statechart`. The script stops with an error if the provider has no skill with that name.
 
 Use a new folder name with only lowercase letters, numbers and `-`. `fetch.sh` deletes and downloads each provider folder again, so it stops with an error if the name is not valid, or if the folder exists and `fetch.sh` did not make it (for example `lib` or `test`).
 

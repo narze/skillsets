@@ -18,13 +18,13 @@ check_dest() {
   fi
 }
 
-# fetch_skills <source> <dest> [skill...] [!skill...]
-# All skills when no skill is given. A skill that starts with ! is left out.
+# fetch_skills <source> <dest> [skill...] [-skill...]
+# All skills when no skill is given. A skill that starts with - is left out.
 fetch_skills() {
   local source="$1" dest="${2-}"
   local skills=() excludes=() arg name
   for arg in "${@:3}"; do
-    if [[ "$arg" == !* ]]; then excludes+=("${arg#!}"); else skills+=("$arg"); fi
+    if [[ "$arg" == -* ]]; then excludes+=("${arg#-}"); else skills+=("$arg"); fi
   done
   [ ${#skills[@]} -eq 0 ] && skills=("*")
   check_dest "$dest"
@@ -75,7 +75,7 @@ write_marketplace() {
 }
 
 fetch_skills mattpocock/skills mattpocock
-fetch_skills cursor/plugins/pstack pstack !statechart
+fetch_skills cursor/plugins/pstack pstack -statechart
 fetch_skills thananon/9arm-skills 9arm debug-mantra post-mortem scrutinize
 fetch_skills obra/superpowers superpowers
 fetch_skills humanlayer/skills humanlayer
