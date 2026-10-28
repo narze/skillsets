@@ -21,6 +21,7 @@ https://github.com/user-attachments/assets/a3b53fa4-422b-4e6b-93a7-f748b89cdad4
 | `superpowers/` | `obra/superpowers`     | All                                       |
 | `humanlayer/` | `humanlayer/skills`     | All                                       |
 | `addyosmani/` | `addyosmani/agent-skills` | All                                     |
+| `tstack/` | `t3dotgg/tstack/skills` | All |
 
 ## Usage
 
