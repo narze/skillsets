@@ -2,6 +2,10 @@
   "name": "skillsets",
   "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/narze/skillsets.git"
+  },
   "type": "module",
   "bin": {
     "skillsets": "cli.mjs"

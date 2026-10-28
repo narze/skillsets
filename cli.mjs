@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 // Choose providers and an agent, then print the command that loads them.
 import * as p from "@clack/prompts";
+import { homedir } from "node:os";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { AGENTS, buildOutput, listProviders } from "./lib/commands.mjs";
+import { destState, installTo, isPackageInstall, skillsetsHome } from "./lib/install.mjs";
 
-const root = dirname(fileURLToPath(import.meta.url));
+const packageRoot = dirname(fileURLToPath(import.meta.url));
 
 function exitIfCancelled(value) {
   if (p.isCancel(value)) {
@@ -15,7 +17,38 @@ function exitIfCancelled(value) {
   return value;
 }
 
+const tilde = (path) => (path.startsWith(homedir()) ? path.replace(homedir(), "~") : path);
+
+// Under npx the package is in a temporary folder, so copy it to ~/.skillsets and use that.
+async function resolveRoot() {
+  if (!isPackageInstall(packageRoot)) return packageRoot;
+
+  const dest = skillsetsHome();
+  const state = destState(dest);
+  if (state === "foreign") {
+    p.cancel(`${tilde(dest)} exists and is not a skillsets folder, so it was not changed.`);
+    process.exit(1);
+  }
+
+  const interactive = process.stdin.isTTY && process.stdout.isTTY;
+  if (state === "ours" && interactive) {
+    const overwrite = exitIfCancelled(
+      await p.confirm({ message: `${tilde(dest)} already exists. Overwrite it with the latest skills?` }),
+    );
+    if (!overwrite) {
+      p.log.info(`Using the skills already in ${tilde(dest)}`);
+      return dest;
+    }
+  }
+
+  const method = installTo(packageRoot, dest);
+  p.log.success(`${method === "git" ? "Cloned" : "Copied"} the skills to ${tilde(dest)}`);
+  return dest;
+}
+
 p.intro("skillsets");
+
+const root = await resolveRoot();
 
 const providers = exitIfCancelled(
   await p.multiselect({

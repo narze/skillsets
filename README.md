@@ -34,6 +34,8 @@ npx .
 
 `npm start` does the same.
 
+Without cloning, run `npx narze/skillsets`. The CLI puts the skills in `~/.skillsets` (not a temporary npx folder), so the printed paths stay valid. It uses `git clone --depth 1` of the `repository` in `package.json`, and copies the files from the npx package if git or the network is not there. If `~/.skillsets` already exists, it asks before it replaces the folder (in a terminal; otherwise it replaces it). Set `SKILLSETS_HOME` to use another folder. `npx .` in a clone uses the clone and downloads nothing.
+
 Each tool loads only the providers you choose, for one session. Use an environment variable when the tool has one, for example in an app such as T3 Code that cannot pass CLI options.
 
 | Tool        | Environment variable       | CLI option                |
@@ -228,7 +230,7 @@ Run ./fetch.sh, check that only the new folder changed, update the provider tabl
 
 1. Click **Use this template** at the top of this repo on GitHub, then **Create a new repository**.
 2. Clone your new repo.
-3. In `fetch.sh`, delete the `fetch_skills` lines that you do not want, and add your providers (see "Add a provider"). Change the owner name `narze` in `write_marketplace` to your name.
+3. In `fetch.sh`, delete the `fetch_skills` lines that you do not want, and add your providers (see "Add a provider"). Change the owner name `narze` in `write_marketplace` to your name, and the `repository` in `package.json` to your repo.
 4. Run `./fetch.sh`. It deletes and downloads each provider folder again. Delete the folders of providers that you removed from `fetch.sh`.
 5. Update the "Providers" table in this README, and commit.
 6. To let the daily workflow open PRs, go to **Settings → Actions → General** and select **Allow GitHub Actions to create and approve pull requests**.
