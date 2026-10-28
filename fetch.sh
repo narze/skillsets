@@ -18,10 +18,14 @@ check_dest() {
   fi
 }
 
-# fetch_skills <source> <dest> [skill...]  (all skills when none are given)
+# fetch_skills <source> <dest> [skill...] [!skill...]
+# All skills when no skill is given. A skill that starts with ! is left out.
 fetch_skills() {
   local source="$1" dest="${2-}"
-  local skills=("${@:3}")
+  local skills=() excludes=() arg name
+  for arg in "${@:3}"; do
+    if [[ "$arg" == !* ]]; then excludes+=("${arg#!}"); else skills+=("$arg"); fi
+  done
   [ ${#skills[@]} -eq 0 ] && skills=("*")
   check_dest "$dest"
 
@@ -34,6 +38,17 @@ fetch_skills() {
     mkdir -p .claude/skills
     mv .agents/skills/* .claude/skills/
     rm -rf .agents
+
+    for name in ${excludes[@]+"${excludes[@]}"}; do
+      if [ ! -d ".claude/skills/$name" ]; then
+        echo "fetch.sh: $source has no skill '$name' to leave out" >&2
+        exit 1
+      fi
+      rm -rf ".claude/skills/$name"
+      node -e 'const fs = require("fs"), [f, n] = process.argv.slice(1);
+        const lock = JSON.parse(fs.readFileSync(f, "utf8")); delete lock.skills[n];
+        fs.writeFileSync(f, JSON.stringify(lock, null, 2) + "\n")' skills-lock.json "$name"
+    done
 
     # Plugin manifests, so Claude Code (CLAUDE_CODE_PLUGIN_DIRS) and Codex (codex-install.sh)
     # can load the same skills
@@ -60,7 +75,7 @@ write_marketplace() {
 }
 
 fetch_skills mattpocock/skills mattpocock
-fetch_skills cursor/plugins/pstack pstack
+fetch_skills cursor/plugins/pstack pstack !statechart
 fetch_skills thananon/9arm-skills 9arm debug-mantra post-mortem scrutinize
 fetch_skills obra/superpowers superpowers
 fetch_skills humanlayer/skills humanlayer

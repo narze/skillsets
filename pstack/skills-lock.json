@@ -301,12 +301,6 @@
       "skillPath": "pstack/skills/show-me-your-work/SKILL.md",
       "computedHash": "1de7f92a6c223c914ba9e220cf3247504df405384557314de92baffafadc3db1"
     },
-    "statechart": {
-      "source": "cursor/plugins",
-      "sourceType": "github",
-      "skillPath": "pstack/skills/statechart/SKILL.md",
-      "computedHash": "ab7f305663449c2f6d832cd273879cee3caeebd65536fa525ccaf03eb6963374"
-    },
     "swarm": {
       "source": "cursor/plugins",
       "sourceType": "github",
