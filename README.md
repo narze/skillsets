@@ -34,7 +34,7 @@ npx .
 
 `npm start` does the same.
 
-Without cloning, run `npx narze/skillsets`. The CLI puts the skills in `~/.skillsets` (not a temporary npx folder), so the printed paths stay valid. It uses `git clone --depth 1` of the repository that npx installed from (so a fork clones itself), or the `repository` in `package.json` if npm does not say, and copies the files from the npx package if git or the network is not there. If `~/.skillsets` already exists, it asks before it replaces the folder (in a terminal; otherwise it replaces it). Set `SKILLSETS_HOME` to use another folder. `npx .` in a clone uses the clone and downloads nothing.
+Without cloning, run `npx narze/skillsets`. The CLI puts the skills in `~/.skillsets` (not a temporary npx folder), so the printed paths stay valid. It uses `git clone --depth 1` of the repository that npx installed from (so a fork clones itself), or the `repository` in `package.json` if npm does not say, and copies the files from the npx package if git or the network is not there. In a terminal, it shows the clone URL so you can check or change it (empty copies the package instead), and asks before it replaces an existing `~/.skillsets`. Without a terminal it asks nothing and replaces the folder. Set `SKILLSETS_HOME` to use another folder. `npx .` in a clone uses the clone and downloads nothing.
 
 Each tool loads only the providers you choose, for one session. Use an environment variable when the tool has one, for example in an app such as T3 Code that cannot pass CLI options.
 

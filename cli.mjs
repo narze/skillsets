@@ -5,7 +5,7 @@ import { homedir } from "node:os";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { AGENTS, buildOutput, listProviders } from "./lib/commands.mjs";
-import { destState, installTo, isPackageInstall, skillsetsHome } from "./lib/install.mjs";
+import { cloneSource, destState, installTo, isPackageInstall, skillsetsHome } from "./lib/install.mjs";
 
 const packageRoot = dirname(fileURLToPath(import.meta.url));
 
@@ -41,7 +41,18 @@ async function resolveRoot() {
     }
   }
 
-  const method = installTo(packageRoot, dest);
+  // Let the user check, or change, where the skills are cloned from. Empty means copy the package.
+  let url = cloneSource(packageRoot);
+  if (url && interactive) {
+    url = exitIfCancelled(
+      await p.text({
+        message: `Clone the skills to ${tilde(dest)} from (empty to copy the package instead)`,
+        initialValue: url,
+      }),
+    ).trim();
+  }
+
+  const method = installTo(packageRoot, dest, { url });
   p.log.success(`${method === "git" ? "Cloned" : "Copied"} the skills to ${tilde(dest)}`);
   return dest;
 }

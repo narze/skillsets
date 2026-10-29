@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { destState, installTo, isPackageInstall, installedFromUrl, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
+import { cloneSource, destState, installTo, isPackageInstall, installedFromUrl, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
 
 const NO_GIT = { clone: () => false };
 const scratch = () => mkdtempSync(join(tmpdir(), "install-test-"));
@@ -135,4 +135,26 @@ test("installTo clones the repository that npm installed from, not the package.j
   };
   installTo(pkg, join(dir, "home"), { clone });
   assert.deepEqual(calls, ["https://github.com/someone/fork.git"]);
+});
+
+test("installTo clones from the url option, and copies when it is empty", () => {
+  const dir = scratch();
+  const pkg = makePackage(join(dir, "pkg"));
+  const calls = [];
+  const clone = (url, to) => {
+    calls.push(url);
+    makePackage(to);
+    return true;
+  };
+  assert.equal(installTo(pkg, join(dir, "a"), { clone, url: "https://github.com/me/mine.git" }), "git");
+  assert.deepEqual(calls, ["https://github.com/me/mine.git"]);
+  assert.equal(installTo(pkg, join(dir, "b"), { clone, url: "" }), "copy");
+  assert.equal(calls.length, 1);
+});
+
+test("cloneSource prefers where npm installed from, then package.json", () => {
+  const dir = scratch();
+  assert.equal(cloneSource(makePackage(join(dir, "pkg"))), "https://example.com/me/skillsets.git");
+  const npx = makeNpxPackage(scratch(), "git+ssh://git@github.com/someone/fork.git#abc");
+  assert.equal(cloneSource(npx), "https://github.com/someone/fork.git");
 });
