@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { destState, installTo, isPackageInstall, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
+import { destState, installTo, isPackageInstall, installedFromUrl, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
 
 const NO_GIT = { clone: () => false };
 const scratch = () => mkdtempSync(join(tmpdir(), "install-test-"));
@@ -13,7 +13,7 @@ function makePackage(dir) {
   writeFileSync(join(dir, ".claude-plugin", "marketplace.json"), "{}");
   mkdirSync(join(dir, "pstack", ".claude", "skills", "demo"), { recursive: true });
   writeFileSync(join(dir, "pstack", ".claude", "skills", "demo", "SKILL.md"), "new");
-  writeFileSync(join(dir, "package.json"), JSON.stringify({ repository: { url: "https://example.com/me/skillsets.git" } }));
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ name: "skillsets", repository: { url: "https://example.com/me/skillsets.git" } }));
   mkdirSync(join(dir, "node_modules", "dep"), { recursive: true });
   writeFileSync(join(dir, "node_modules", "dep", "index.js"), "");
   return dir;
@@ -104,4 +104,35 @@ test("installTo copies the package when the clone fails, and keeps the old folde
   const badPkg = join(dir, "missing-pkg");
   assert.throws(() => installTo(badPkg, dest, NO_GIT));
   assert.equal(existsSync(join(dest, "pstack")), true);
+});
+
+// Like npx: <cache>/node_modules/skillsets plus <cache>/node_modules/.package-lock.json
+function makeNpxPackage(dir, resolved) {
+  const pkg = makePackage(join(dir, "node_modules", "skillsets"));
+  writeFileSync(
+    join(dir, "node_modules", ".package-lock.json"),
+    JSON.stringify({ packages: { "node_modules/skillsets": { resolved } } }),
+  );
+  return pkg;
+}
+
+test("installedFromUrl gives the https URL that npm installed from, without the commit", () => {
+  const url = (resolved) => installedFromUrl(makeNpxPackage(scratch(), resolved));
+  assert.equal(url("git+ssh://git@github.com/someone/fork.git#abc123"), "https://github.com/someone/fork.git");
+  assert.equal(url("git+https://github.com/someone/fork.git#abc123"), "https://github.com/someone/fork.git");
+  assert.equal(url("file:../x/skillsets-1.0.0.tgz"), undefined);
+  assert.equal(installedFromUrl(makePackage(join(scratch(), "pkg"))), undefined);
+});
+
+test("installTo clones the repository that npm installed from, not the package.json one", () => {
+  const dir = scratch();
+  const pkg = makeNpxPackage(dir, "git+ssh://git@github.com/someone/fork.git#abc123");
+  const calls = [];
+  const clone = (url, to) => {
+    calls.push(url);
+    makePackage(to);
+    return true;
+  };
+  installTo(pkg, join(dir, "home"), { clone });
+  assert.deepEqual(calls, ["https://github.com/someone/fork.git"]);
 });
