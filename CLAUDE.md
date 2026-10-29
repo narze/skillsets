@@ -6,6 +6,8 @@ This repo stores agent skills from other providers, one folder for each provider
 
 `npx .` (or `npm start`) runs an interactive CLI (`cli.mjs`) that prints the command for the chosen skillsets and agent. The commands come from `lib/commands.mjs`. If you change how an agent loads skills, update that file, its tests in `test/`, and this file. Run `npm test`.
 
+When the package runs from a `node_modules` folder (`npx narze/skillsets`), `cli.mjs` first puts the skills in `~/.skillsets` (`SKILLSETS_HOME` overrides it) with `lib/install.mjs`, and prints paths in that folder. It runs `git clone --depth 1` of the repository that npm installed from (read from `node_modules/.package-lock.json`, so a fork clones itself), else the `repository` in `package.json`, and copies the package if that fails. In a terminal it shows the clone URL for the user to confirm or edit (empty copies), and asks before replacing the folder, and refuses a folder without `.claude-plugin/marketplace.json`. `--repo <owner/repo|url>` or `SKILLSETS_REPO` chooses the repository: no URL prompt, and a failed clone is an error, not a copy. `npx .` in a checkout uses the checkout.
+
 Prefer environment variables, because apps such as T3 Code cannot pass CLI options.
 
 Claude Code: set `CLAUDE_CODE_PLUGIN_DIRS` to provider folders, separated by `:`. Skill names get the provider prefix, for example `/pstack:poteto-help`.
