@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { cloneSource, destState, installTo, isPackageInstall, installedFromUrl, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
+import { repoUrl, cloneSource, destState, installTo, isPackageInstall, installedFromUrl, repositoryUrl, skillsetsHome } from "../lib/install.mjs";
 
 const NO_GIT = { clone: () => false };
 const scratch = () => mkdtempSync(join(tmpdir(), "install-test-"));
@@ -157,4 +157,23 @@ test("cloneSource prefers where npm installed from, then package.json", () => {
   assert.equal(cloneSource(makePackage(join(dir, "pkg"))), "https://example.com/me/skillsets.git");
   const npx = makeNpxPackage(scratch(), "git+ssh://git@github.com/someone/fork.git#abc");
   assert.equal(cloneSource(npx), "https://github.com/someone/fork.git");
+});
+
+test("repoUrl turns owner/repo into a GitHub URL and keeps other values", () => {
+  assert.equal(repoUrl("me/skillsets"), "https://github.com/me/skillsets.git");
+  assert.equal(repoUrl("github:me/skillsets"), "https://github.com/me/skillsets.git");
+  assert.equal(repoUrl("me/skillsets.git"), "https://github.com/me/skillsets.git");
+  assert.equal(repoUrl("https://example.com/me/x.git"), "https://example.com/me/x.git");
+  assert.equal(repoUrl("git@github.com:me/x.git"), "git@github.com:me/x.git");
+  assert.equal(repoUrl("/tmp/some/repo"), "/tmp/some/repo");
+});
+
+test("installTo throws, and keeps the old folder, when the chosen repo cannot be cloned", () => {
+  const dir = scratch();
+  const dest = join(dir, "home");
+  installTo(makePackage(join(dir, "pkg")), dest, NO_GIT);
+  const options = { clone: () => false, url: "me/none", copyFallback: false };
+  assert.throws(() => installTo(makePackage(join(dir, "pkg2")), dest, options), /Could not clone me\/none/);
+  assert.equal(existsSync(join(dest, "pstack")), true);
+  assert.equal(existsSync(`${dest}.new`), false);
 });
