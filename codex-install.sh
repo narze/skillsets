@@ -8,7 +8,22 @@ set -euo pipefail
 cd "$(dirname "$0")"
 codex_home="${CODEX_HOME:-$HOME/.codex}"
 
-codex plugin marketplace add "$PWD"
+if marketplace_output=$(codex plugin marketplace add "$PWD" 2>&1); then
+  printf '%s\n' "$marketplace_output"
+else
+  marketplace_status=$?
+  case "$marketplace_output" in
+    *"marketplace 'skillsets' is already added from a different source;"*)
+      echo "==> Replacing the existing skillsets marketplace source with $PWD"
+      codex plugin marketplace remove skillsets
+      codex plugin marketplace add "$PWD"
+      ;;
+    *)
+      printf '%s\n' "$marketplace_output" >&2
+      exit "$marketplace_status"
+      ;;
+  esac
+fi
 
 for dir in */.codex-plugin; do
   codex plugin add "${dir%/.codex-plugin}@skillsets"

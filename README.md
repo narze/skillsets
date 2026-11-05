@@ -125,6 +125,8 @@ Install the plugins one time:
 
 The script adds this repo as the `skillsets` marketplace, installs each provider as a plugin, and turns the plugins off in `~/.codex/config.toml`. So they do not load in a normal session.
 
+If `skillsets` is already registered from another source, the script replaces that source with this checkout and reinstalls the plugins.
+
 Turn on the providers you want for one session with `-c`:
 
 ```bash
