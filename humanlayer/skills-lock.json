@@ -3,42 +3,49 @@
   "skills": {
     "build-iterated-agentic-loop": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/build-iterated-agentic-loop/skills/build-iterated-agentic-loop/SKILL.md",
       "computedHash": "defffd2580a8f5c1932baafb72383dd32705f733c4dd8353ed5218f3d0233d2d"
     },
     "design-control-loop": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/design-control-loop/skills/design-control-loop/SKILL.md",
       "computedHash": "05f5766a19f261b1b9678405a0084fb9d6a972926cdfdc7acf7326163bfc386a"
     },
     "improve-claude-md": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/improve-claude-md/skills/improve-claude-md/SKILL.md",
       "computedHash": "93e8e924a9d77d04fe9770ff44725d27af561d41eb922da62cffa3380fac9d25"
     },
     "narrow-react-prop-types": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/narrow-react-prop-types/skills/narrow-react-prop-types/SKILL.md",
       "computedHash": "ecb8efac80943a9a8f40cc62dbc48d1944675a3b5e7f7dadd265558d4cc85921"
     },
     "rpi": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/rpi/skills/rpi/SKILL.md",
       "computedHash": "dfbbb8fe63ccd5d92beb3ad6e3eedd5e9b82e014025863c58d58b995068c50c0"
     },
     "show-me": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/show-me/skills/show-me/SKILL.md",
       "computedHash": "0904362ca0f13fc69d88822bb1e7a72f27fd80b992b57ef89ef8a12c3fecce35"
     },
     "visual-pr": {
       "source": "humanlayer/skills",
+      "commit": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
       "sourceType": "github",
       "skillPath": "plugins/visual-pr/skills/visual-pr/SKILL.md",
       "computedHash": "6b0278abf6bf46fcf8ad05ffd545e5d14501422cef0febc9e7e86001a43d1ea3"
