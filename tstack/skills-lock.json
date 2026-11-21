@@ -3,54 +3,63 @@
   "skills": {
     "babysit-pr": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/babysit-pr/SKILL.md",
       "computedHash": "b6f349b95dbf4cce64cf61608b4ed9a98ce3725afe29676e6614efc8dccb5c29"
     },
     "council": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/council/SKILL.md",
       "computedHash": "2b07ab25fa4a1bb07c70b89b8eaf4a5bb43c673faead94aa7f3e608e19577e4e"
     },
     "file-pr": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/file-pr/SKILL.md",
       "computedHash": "9f4f1174623e51b7d4582d53c387459af71032aa0cba70470bd0bb2a85820443"
     },
     "full-send": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/full-send/SKILL.md",
       "computedHash": "dd66dd22c76558f50c722c26432e713468a68599fb0db0eb2d9e50bbebdbd3f8"
     },
     "full-stop": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/full-stop/SKILL.md",
       "computedHash": "97cd08646e1f9bbb89bf18bf131982ee66df7834cce071bc5385e8fc4f5a60a9"
     },
     "leaving-pr-comments": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/leaving-pr-comments/SKILL.md",
       "computedHash": "aa96b3df788cf8125aa202ad54bebbd91878a0218eae94c8035536d7bda026a2"
     },
     "modernize": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/modernize/SKILL.md",
       "computedHash": "01aceb93a7408157fc0038bc3e84e698e163ff4330a6da9f6358487ce8af3ddd"
     },
     "sol-loop": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/sol-loop/SKILL.md",
       "computedHash": "579718e954d9edc00de37bdc4666475bcebb5c398b4d8f608f8251a1599bc6f6"
     },
     "takeover": {
       "source": "t3dotgg/tstack",
+      "commit": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
       "sourceType": "github",
       "skillPath": "skills/takeover/SKILL.md",
       "computedHash": "3cd3b50b50005459839f9c77614a3e707121f3aad20b7b23c203813b6cf7b4fc"
